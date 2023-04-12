@@ -1,0 +1,17 @@
+.buttons-container {   
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+.save-button {
+	margin-right: 13px;
+}
+
+.new-button {
+	margin-right: 13px;
+}
+
+.list-button {
+	margin-right: 13px;
+}

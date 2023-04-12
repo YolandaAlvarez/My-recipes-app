@@ -1,9 +1,11 @@
 import React from 'react';
 import Recommended from '../recommended/Recommended';
-import NewRecommended from '../recommended/NewRecommended';
 import { Button } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import api from '../api/axiosConfig';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PdfDocument from '../pdf/PdfDocument';
+import './WeeklyMenu.css';
 
 const WeeklyMenu = () => {
   
@@ -24,10 +26,7 @@ const WeeklyMenu = () => {
   const funcionIdCen = redbId => {
     setCenaId(redbId);    
   };
-  /**
-   * ---- END: Manejo para obtener los redbId de cada receta -----
-   */
-
+  /**---- END-----  */
 
   /**
    * Manejo para crear EL MENU SEMANAL 
@@ -64,10 +63,7 @@ const WeeklyMenu = () => {
   const getNewWeeklyMeals = (valueMeal) => {
     setNewWeeklyMeal(valueMeal);
   };   
-
-  /**
-   * ---- END: Manejo para crear EL MENU SEMANAL ----- 
-   */
+  /**---- END-----  */
   
   /**
    * Manejo para crear la lista de compras 
@@ -93,22 +89,21 @@ const WeeklyMenu = () => {
       deleteIngredient(value);
     }
   };
-
-  const printIngredients = ( ) => {
-    console.log(ingredients);
-  }
-
-  /**
-   * ---- END: Manejo para crear la lista de compras ----- 
-   */
+  /**---- END-----  */
 
   return (
     <div>
       {functionJoinRecp()}      
       <div className='buttons-container'> 
         <Button className="save-button" variant="info" onClick={() => saveWeeklyMeals(allRecps) } >Guardar</Button>
-        <Button className="new-button" variant="info" onClick={() => getNewWeeklyMeals(1) } >Nuevo Menú</Button>
-        <Button className="list-button" variant="info" onClick={() => printIngredients() } >Lista de compras</Button>
+        <Button className="new-button" variant="info" onClick={() => getNewWeeklyMeals(1) } >Nuevo Menú</Button>        
+        <div className="download-button">        
+          <PDFDownloadLink 
+            document={<PdfDocument ingredients={ingredients}/>} 
+            fileName="Lista-de-compras.pdf" >
+            <Button className="list-button" variant="info" >Lista de compras</Button>
+          </PDFDownloadLink>        
+        </div>
       </div>
       <Recommended key={"desayuno"} keyword = {"desayuno"} funcionId = {funcionIdDes} newWeeklyMeal = {newWeeklyMeal} getNewWeeklyMeals = {getNewWeeklyMeals} changeIngredients = {changeIngredients} />
       <Recommended key={"comida"} keyword ={ "comida"}  funcionId = {funcionIdCom} newWeeklyMeal = {newWeeklyMeal} getNewWeeklyMeals = {getNewWeeklyMeals} changeIngredients = {changeIngredients}  />
