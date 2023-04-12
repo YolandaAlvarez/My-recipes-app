@@ -1,0 +1,32 @@
+.recipes-container {
+  width: var(--view-width);
+  max-width: var(--max-width);
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  background-color: rgba(240, 240, 240, 0.685);
+}
+
+.recp-pic-ctr {
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+    
+.recp-pic {
+  height: 200px;
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 38px;
+  background-color:rgba(240, 240, 240, 0.685);
+  color: white;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin: 4px;
+  cursor: pointer;
+  user-select: none;
+}

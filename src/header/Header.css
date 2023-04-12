@@ -1,0 +1,31 @@
+.header-container {
+  background-color: rgba(111, 226, 255, 0.849);
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-nav-container {
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.hm {
+  height: 65px;
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: rgba(111, 226, 255, 0.849);  
+  color: white;
+  border-radius: 25px;
+  border: 2px solid white;
+  margin: 4px;
+  cursor: pointer;
+  user-select: none;
+}
