@@ -34,39 +34,38 @@ const Recipe = () => {
 				<div className="title">
 					<h1>{recipe.name}</h1>
 				</div>
+				<div className="row">
+					<h3 className="label">Categoria: </h3>
+					<p className="text">{recipe.keywords}</p>
+				</div>
+				<div className="row">
+					<h3 className="label">Descripcion: </h3>
+					<p className="text">{recipe.description}</p>
+				</div>
 				<div className="flex-container">
-					{recipe.picture && (
-						<img src={recipe.picture} alt="" className="recipe-img" />
-					)}
+					<img src={recipe.picture} alt="" className="recipe-img" />
 					<div className="cocktail-infos">
-						<div className="row">
-							<h3 className="label">Descripcion: </h3>
-							<p className="text">{recipe.description}</p>
-						</div>
-            			<div className="row">
-							<h3 className="label">Categoria: </h3>
-							<p className="text">{recipe.keywords}</p>
-						</div>
 						<div className="row">
 							<h3 className="label">Ingredientes: </h3>
 							<p className="text">
-								{recipe.ingredients?.map((recp) => 
-								<Form.Group className="mb-3" controlId="formBasicCheckbox">
-								<Form.Check type="checkbox" label={recp} />
-								</Form.Group>
-								)}
+								{
+									recipe.ingredients?.map((recp) => 
+										<Form.Group key={recp} className="mb-3" controlId="formBasicCheckbox">
+											<Form.Check type="checkbox" label={recp} />
+										</Form.Group>	)
+								}
 							</p>              
-						</div>
-						<div className="row">
+						</div>											
+					</div>
+				</div>
+				<div className="row">
 							<h3 className="label">Preparacion: </h3>
 								<p className="text">
 									{recipe.directions?.map((direc) => 
 									<p className="text">{direc}</p>
 									)}
 								</p>
-						</div>						
-					</div>
-				</div>
+						</div>	
 			</div>
 		</div>
 	);

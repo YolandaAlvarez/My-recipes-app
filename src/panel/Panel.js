@@ -22,7 +22,7 @@ const Panel = ({ keyword }) => {
 
   useEffect(() => {
     getRecetasKey();
-  },[])
+  },[keyword])
 
   const capitalizeWords = (str) => {
     return str
@@ -42,11 +42,11 @@ const Panel = ({ keyword }) => {
         {
           recetasKey?.map((receta) =>
             <CardGroup className='recipe-pic-container' key={receta.redbId}>           
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={receta.picture} alt={receta.redbId} />
-                <Card.Body>
-                  <Card.Title>{receta.name}</Card.Title>
-                  <Card.Text> {receta.description} </Card.Text>
+              <Card className='recipe-card'>
+                <Card.Img className='recipe-pic' variant="top" src={receta.picture} alt={receta.redbId} />
+                <Card.Body className='recipe-body' >
+                  <Card.Title className='recipe-body-title'>{receta.name}</Card.Title>
+                  <Card.Text className='recipe-body-text'> {receta.description} </Card.Text>
                   <Button variant="primary">
                     <Link to={`/receta/${receta.redbId}`}>
 								      <div className="btn">Receta</div>

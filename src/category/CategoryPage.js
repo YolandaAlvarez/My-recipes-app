@@ -22,7 +22,7 @@ const CategoryPage = ({ category }) => {
 
   useEffect(() => {
     getRecetasKey();
-  },[])
+  },[category])
 
   const capitalizeWords = (str) => {
     return str
@@ -34,14 +34,19 @@ const CategoryPage = ({ category }) => {
 
   return (
     <div>
-      <div className='recipes-container'>
-        {capitalizeWords(category)}
+      <div className='category-name' >
+      <h1>{capitalizeWords(category)}</h1>
+      </div>
+      <div className='recipes-container'>                
         {
           recetasKey?.map((receta) =>
-            <div className='recp-pic-ctr' key={receta.redbId}>
+            <div className='recp-pic-container' key={receta.redbId}>
               <Link to={`/receta/${receta.redbId}`}> 
-                <img className='recp-pic' src={receta.picture} alt={receta.redbId} onClick={() => <Recipe />} /> 
+                <img className='recp-picture' src={receta.picture} alt={receta.redbId} onClick={() => <Recipe />} /> 
               </Link>
+              <div className='recipe-name' >
+                {receta.name}
+              </div>
             </div>
           )
         }

@@ -1,13 +1,10 @@
 .carousel-container {
   width: 1200px;
   max-width: calc(100% - 20px);
-  height: 300px;
+  height: 250px;
   margin: 0 auto;
   padding: 0 10px;
-  background-color: rgba(0, 255, 255, 0.425);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  
 }
 
 .pic-container-hero {
@@ -18,18 +15,9 @@
 }
   
 .recipe-pic-hero {
-  height: 83px;
-  display: flex;
-  flex: 1 1;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 38px;
-  background-color: #1b1b32;
-  color: white;
-  border-radius: 25px;
-  border: 2px solid white;
-  margin: 4px;
+  height: 200px;
+  width: 360px;
+  border-radius: 10px; 
   cursor: pointer;
   user-select: none;
 }
