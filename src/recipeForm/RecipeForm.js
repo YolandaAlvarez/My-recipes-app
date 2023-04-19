@@ -1,9 +1,10 @@
 import {Form,Button} from 'react-bootstrap';
+import './RecipeForm.css';
 
 const RecipeForm = ({handleSubmit, recipeNameF, recipeDescriptionF, recipeVideoF, recipeKeywordsF, recipePictureF, recipeIngredientsF, recipeDirectionsF}) => {
   return (
 
-    <Form>
+    <Form className='recipe-form'>
         <Form.Group className="col col-sm-4" controlId="nameText">
             <Form.Label>Nombre de la Receta</Form.Label>
             <Form.Control ref={recipeNameF} as="textarea" rows={1} />
@@ -32,7 +33,7 @@ const RecipeForm = ({handleSubmit, recipeNameF, recipeDescriptionF, recipeVideoF
             <Form.Label>Preparacion</Form.Label>
             <Form.Control ref={recipeDirectionsF} as="textarea" rows={3} placeholder="Lava y desinfecta frutas y verduras"/>
         </Form.Group>
-        <Button variant="outline-info" onClick={handleSubmit}>Guardar</Button>
+        <Button className='button-form' variant="info" size="lg" onClick={handleSubmit}>Guardar</Button>
     </Form>   
 
   )

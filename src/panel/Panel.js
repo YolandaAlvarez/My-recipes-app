@@ -4,6 +4,7 @@ import api from '../api/axiosConfig';
 import { useState, useEffect } from 'react';
 import { Button, Card, CardGroup } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
+import Slider from "react-slick";
 
 const Panel = ({ keyword }) => {
 
@@ -32,16 +33,23 @@ const Panel = ({ keyword }) => {
       .join(' ');
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
     <div className='panel-container'>
       <div className="title">
         <h1>{capitalizeWords(keyword)}</h1>
-      </div>
-      <div className='key-recipe-container'>
-                
+      </div>      
+      <Slider {...settings}>
         {
           recetasKey?.map((receta) =>
-            <CardGroup className='recipe-pic-container' key={receta.redbId}>           
+            <CardGroup className='key-recipe-container' key={receta.redbId}>           
               <Card className='recipe-card'>
                 <Card.Img className='recipe-pic' variant="top" src={receta.picture} alt={receta.redbId} />
                 <Card.Body className='recipe-body' >
@@ -57,7 +65,8 @@ const Panel = ({ keyword }) => {
           </CardGroup>
           )
         }
-      </div>
+        </Slider>
+      
     </div>
   )
 }
