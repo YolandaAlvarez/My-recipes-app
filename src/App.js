@@ -16,6 +16,7 @@ function App() {
     <div className="App">
       <Header/>
       <Routes>
+        {console.log(process.env.SERVER_URL)}
         <Route path="/" element={<Layout/>}>
           <Route path="/" element={<Home />} ></Route>
           <Route path="/desayunos" element={<CategoryPage category={"desayuno"} />} ></Route>
