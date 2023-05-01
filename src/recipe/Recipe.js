@@ -28,7 +28,7 @@ const Recipe = () => {
 	return (
 		<div className="container">
 			<button className="btn" onClick={() => navigate(-1)}>
-				Go Back
+				Atrás
 			</button>
 			<div>
 				<div className="title">
